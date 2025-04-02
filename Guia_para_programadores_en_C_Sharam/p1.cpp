@@ -10,7 +10,7 @@ class Set {
    int card;
 public:
    void EmptySet () { card = 0; }
-   Bool Member (int):
+   Bool Member (int );
    ErrCode AddElem (int);
    void RmvElem (int);
    void Copy (Set *);
@@ -39,6 +39,7 @@ ErrCode Set::AddElem (int elem)
       return overflow;
 }
 
+
 void Set::RmvElem (int elem)
 {
    for (int i = 0; i < card; ++i)
@@ -49,6 +50,7 @@ void Set::RmvElem (int elem)
       }
 }
 
+
 void Set::Copy (Set *set)
 {
    for (int i=0; i < card; ++i)
@@ -56,14 +58,16 @@ void Set::Copy (Set *set)
    set -> card = card;
 }
 
+
 Bool Set::Equal (Set *set)
 {
-   if (card != set -> card) return false;
+   if (card != set -> card) return False;
    for (int i=0; i < card; ++i)
       if (!set -> Member(elems[i]))
-         return false;
-   return true;
+         return False;
+   return True;
 }
+
 
 void Set::Print ()
 {
@@ -72,9 +76,8 @@ void Set::Print ()
       cout << elems[i] << ",";
    if (card > 0)
       cout << elems[card-1];
-   COUT << "}";
+   cout << "}";
 }
-
 
 
 int main()
@@ -83,6 +86,7 @@ int main()
    s1.EmptySet(); 
    s2.EmptySet(); 
    s3.EmptySet();
+
    s1.AddElem(10); 
    s1.AddElem(20);
    s1.AddElem(30);
