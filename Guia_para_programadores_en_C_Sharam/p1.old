@@ -17,7 +17,7 @@ public:
    Bool Equal (Set *);
    void Print ();
    void Intersect (Set *, Set *);
-//   ErrCode Union (Set *, Set *);
+   ErrCode Union (Set *, Set *);
 };
 
 Bool Set::Member (int elem)
@@ -54,22 +54,9 @@ void Set::RmvElem (int elem)
 void Set::Copy (Set *set)
 {
    for (int i=0; i < card; ++i)
-      set -> elems[i] = elems[i];
+      set -> elems[i] = card;
    set -> card = card;
 }
-
-void Set::Intersect (Set *s1, Set *s2)
-{
-   card=0;
-   for (int i=0; i < s1->card; ++i)
-      for (int j=0; j < s2->card; ++j)
-         if (s1 -> elems[i] == s2 -> elems[j])
-         {
-            elems[card] = s1 -> elems[i];
-            card = card+1;
-         }
-}
-
 
 
 Bool Set::Equal (Set *set)
@@ -89,7 +76,7 @@ void Set::Print ()
       cout << elems[i] << ",";
    if (card > 0)
       cout << elems[card-1];
-   cout << "}\n";
+   cout << "}";
 }
 
 
@@ -114,9 +101,6 @@ int main()
    cout << "s2 = ";     
    s2.Print();
 
-//   s1.Copy(&s3);
-//   cout << "copia s1 a s3: ";
-//   s3.Print();
    s2.RmvElem(50);
 
    cout << "s2 - {50} = ";	
@@ -124,14 +108,13 @@ int main()
 
    if (s1.Member(20))
       cout << "20 is in s1\n";
-
-   s3.Intersect(&s2, &s1);
+   s1.Intersect(&s2, &s3);
    cout << "s1 intsec s2 = ";	
    s3.Print();
-//   s1.Union(&s2, &s3);
-//   cout << "s1 union s2 =";	
-//   s3.Print();
-//   if (!s1.Equal(&s2))
-//      cout << "s1 /= s2";
+   s1.Union(&s2, &s3);
+   cout << "s1 union s2 =";	
+   s3.Print();
+   if (!s1.Equal(&s2))
+      cout << "s1 /= s2";
 }
 
