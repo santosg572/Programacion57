@@ -41,13 +41,17 @@ ErrCode Set::AddElem (int elem)
 
 ErrCode Set::Union (Set *s1, Set *s2)
 {
-   s1->Copy(this);
-   this -> AddElem(999)
 
-//   for (int i=0; i < s2->card; ++i)
-//      if (!this -> AddElem(s2->elems[i]))
-//         return overflow;
-   return noErr;;
+   card = 0;
+   for (int i=0; i < s1->card; ++i){
+      elems[i] = s1 -> elems[i];
+      card++;
+   }
+
+   for (int i=0; i < s2->card; ++i)
+      if (!this -> AddElem(s2->elems[i]))
+         return overflow;
+   return noErr;
 }
 
 void Set::RmvElem (int elem)
