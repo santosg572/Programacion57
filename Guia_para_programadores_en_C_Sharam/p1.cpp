@@ -17,7 +17,7 @@ public:
    Bool Equal (Set *);
    void Print ();
    void Intersect (Set *, Set *);
-//   ErrCode Union (Set *, Set *);
+   ErrCode Union (Set *, Set *);
 };
 
 Bool Set::Member (int elem)
@@ -39,6 +39,16 @@ ErrCode Set::AddElem (int elem)
       return overflow;
 }
 
+ErrCode Set::Union (Set *s1, Set *s2)
+{
+   s1->Copy(this);
+   this -> AddElem(999)
+
+//   for (int i=0; i < s2->card; ++i)
+//      if (!this -> AddElem(s2->elems[i]))
+//         return overflow;
+   return noErr;;
+}
 
 void Set::RmvElem (int elem)
 {
@@ -95,10 +105,11 @@ void Set::Print ()
 
 int main()
 {
-   Set s1, s2, s3;
+   Set s1, s2, s3, s4;
    s1.EmptySet(); 
    s2.EmptySet(); 
    s3.EmptySet();
+   s4.EmptySet();
 
    s1.AddElem(10); 
    s1.AddElem(20);
@@ -108,11 +119,23 @@ int main()
    s2.AddElem(50);
    s2.AddElem(10);
    s1.AddElem(60);
+
+   s3.AddElem(20);
+   s3.AddElem(40);
+   s3.AddElem(5);
+   s3.AddElem(70);
+
+
    
    cout << "s1 = ";	
    s1.Print();
+
    cout << "s2 = ";     
    s2.Print();
+
+
+   cout << "s3 = ";     
+   s3.Print();
 
 //   s1.Copy(&s3);
 //   cout << "copia s1 a s3: ";
@@ -128,6 +151,12 @@ int main()
    s3.Intersect(&s2, &s1);
    cout << "s1 intsec s2 = ";	
    s3.Print();
+
+   s4.Union(&s1, &s3);
+   cout << "s1 union s4 = ";   
+   s4.Print();
+
+
 //   s1.Union(&s2, &s3);
 //   cout << "s1 union s2 =";	
 //   s3.Print();
