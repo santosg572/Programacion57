@@ -1,0 +1,5 @@
+https://bioinf.comav.upv.es/courses/unix/expresiones_regulares.html
+https://sio2sio2.github.io/doc-linux/02.conbas/10.texto/01.regex.html
+https://4geeks.com/es/lesson/expresiones-regulares-linux
+https://blyx.com/public/docs/curso-linux-principiantes/regexp.html
+
