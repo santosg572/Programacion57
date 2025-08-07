@@ -1,0 +1,12 @@
+#!/bin/bash
+
+lista1="wc ls pwd"
+lista2="zcat zmq_connect_peer              zmq_pgm zcmp                          zmq_ctx_get                   zmq_plain zdiff                         zmq_ctx_new                   zmq_poll zdump                         zmq_ctx_set                   zmq_poller zegrep                        zmq_ctx_shutdown              zmq_ppoll zeisstopnm                    zmq_ctx_term                  zmq_proxy zenity                        zmq_curve                     zmq_proxy_steerable zero                          zmq_curve_keypair             zmq_recv zerofree                      zmq_curve_public              zmq_recvmsg zfgrep                        zmq_disconnect                zmq_send zforce                        zmq_errno                     zmq_send_const zgrep                         zmq_getsockopt                zmq_sendmsg zic                           zmq_gssapi                    zmq_setsockopt zip                           zmq_has                       zmq_socket zipcloak                      zmq_inproc                    zmq_socket_monitor zipdetails                    zmq_ipc                       zmq_socket_monitor_versioned zipgrep                       zmq_msg_close                 zmq_strerror zipinfo                       zmq_msg_copy                  zmq_tcp zipnote                       zmq_msg_data                  zmq_timers zipsplit                      zmq_msg_get                   zmq_tipc zjsdecode                     zmq_msg_gets                  zmq_udp zless                         zmq_msg_init                  zmq_unbind zlib                          zmq_msg_init_buffer           zmq_version zmore                         zmq_msg_init_data             zmq_vmci zmq                           zmq_msg_init_size             zmq_z85_decode zmq_atomic_counter_dec        zmq_msg_more                  zmq_z85_encode zmq_atomic_counter_destroy    zmq_msg_move                  znew zmq_atomic_counter_inc        zmq_msg_recv                  zramctl zmq_atomic_counter_new        zmq_msg_routing_id            zsoelim zmq_atomic_counter_set        zmq_msg_send                  zstd zmq_atomic_counter_value      zmq_msg_set                   zstdcat zmq_bind                      zmq_msg_set_routing_id        zstdgrep zmq_close                     zmq_msg_size                  zstdless zmq_connect                   zmq_null                      zstdmt"
+
+
+for ss in $lista2
+do
+  echo "========================== "$ss" ========================== " 
+  ./man_comando.sh $ss > $ss".txt"
+done
+
